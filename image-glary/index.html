@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Image Glary</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="image">
+            <img src="https://i.ytimg.com/vi/9BPfyhhv7-c/maxresdefault.jpg" alt="">
+        </div>
+        <div class="image">
+            <img  src="https://www.travelonline.com/news/5-natural-landscapes-so-incredible-you-wont-believe-theyre-real-72515-ws.jpg" alt="">
+        </div>
+        <div class="image">
+            <img  src="https://vn-test-11.slatic.net/p/9b18852efe3ecaf37e66c12df3300175.jpg" alt="">
+        </div>
+        <div class="image">
+            <img  src="https://www.iberdrola.com/documents/20125/40537/Polinizacion_2_746x419.jpg/bea16672-47b8-6b2a-c32b-55667a6d4f5d?t=1627454732817" alt="">
+        </div>
+        <div class="image">
+            <img src="https://i.ytimg.com/vi/9BPfyhhv7-c/maxresdefault.jpg" alt="">
+        </div>
+        <div class="image">
+            <img  src="https://www.travelonline.com/news/5-natural-landscapes-so-incredible-you-wont-believe-theyre-real-72515-ws.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="https://vn-test-11.slatic.net/p/9b18852efe3ecaf37e66c12df3300175.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="https://www.iberdrola.com/documents/20125/40537/Polinizacion_2_746x419.jpg/bea16672-47b8-6b2a-c32b-55667a6d4f5d?t=1627454732817" alt="">
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-img">
+            <i class="fa-solid fa-angle-left prev"></i>
+            <img src="" alt="">
+            <i class="fa-solid fa-angle-right next"></i>
+        </div>
+    </div>
+    <script>
+        const image = document.querySelectorAll(".image img");
+        const modal = document.querySelector(".modal")
+        const prev = document.querySelector(".prev")
+        const next = document.querySelector(".next")
+        console.log(modal)
+        const img = document.querySelector(".modal-img img")
+        console.log(img)
+        let currentIndex = 0;
+        function showImage(){
+            if(currentIndex == 0){
+                prev.classList.add("hide-icon")
+            }else{
+                prev.classList.remove("hide-icon")
+            } 
+            if(currentIndex == image.length - 1){
+                next.classList.add("hide-icon")
+            } else {
+                next.classList.remove("hide-icon")
+            }
+            img.src = image[currentIndex].src
+            modal.classList.add("show")
+        }
+        [...image].forEach((item, index) => {
+            item.addEventListener("click", (e)=>{
+                currentIndex = index
+                showImage()
+                
+            }
+            )
+        })
+        document.addEventListener("keydown", (e)=>{
+            if(e.keyCode == 27){
+                modal.classList.remove("show")
+            }
+        })
+        document.body.addEventListener("click", (e)=>{
+            if(e.target.matches(".modal")){
+                e.target.classList.remove("show")
+            }
+        })
+        prev.addEventListener("click", (e)=>{
+             if(currentIndex > 0){
+                currentIndex--;
+                showImage()
+             }
+
+        })
+        next.addEventListener("click", (e)=>{
+            if(currentIndex < image.length-1){
+                currentIndex++
+                showImage()
+            }
+        })
+    </script>
+</body>
+</html>

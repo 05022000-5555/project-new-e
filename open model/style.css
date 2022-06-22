@@ -1,0 +1,85 @@
+body{
+    background-image: linear-gradient( 45deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 50%, rgb(255, 204, 112) 100% );
+    height: 100vh;
+    overflow: hidden;
+    
+}
+:root {
+    --pink-color: #e26e70;
+}
+.open-model{
+    display: inline-block;
+    padding: 10px;
+    background-color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.open-model:hover{
+    background-color: rgb(212, 204, 204);
+}
+.model{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+.is-show{
+    opacity: 1;
+    visibility: visible;
+}
+.model-content{
+    width: 500px;
+    height: 250px;
+    background-color: white;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+.head{
+    padding: 12px 15px;
+    background-color: var(--pink-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+.head i{
+    font-size: 20px;
+    cursor: pointer;
+}
+.content {
+    padding: 15px;
+}
+.content h3{
+    color: var(--pink-color);
+    margin-bottom: 15px;
+}
+.model-content .content button{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    outline: none;
+    background-color: var(--pink-color);
+    padding: 10px 15px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+
+}

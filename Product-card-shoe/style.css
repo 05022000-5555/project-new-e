@@ -1,0 +1,132 @@
+body{
+    height: 100vh;
+    background-image: linear-gradient(to right, #4daf54, #3d8880);
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+    --primary-color: #4daf54;
+}
+.wrapper{
+    margin: 120px auto;
+    width: 320px;
+    height: 400px;
+    background-color: #272d40;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    position: relative;
+}
+.heart{
+    z-index: 2;
+}
+.heart, .shopping{
+    font-size: 25px;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    cursor: pointer;
+}
+.shopping{
+    left: unset;
+    right: 20px;
+}
+.image{
+    width: 90%;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s linear;
+}
+.name-show{
+    font-weight: bold;
+    font-size: 25px;
+    color: var(--primary-color);
+    text-align: center;
+    transition: all 0.3s linear;
+
+}
+.price{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    transition: all 0.3s linear;
+
+}
+.push .size, .push .color{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.size span{
+    width: 25px;
+    height: 25px;
+    background-color: #dadada;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: black;
+    font-weight: 300;
+    cursor: pointer;
+}
+.color span{
+    width: 15px;
+    height: 15px;
+    border-radius: 100rem;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+span.green{
+    background-color: green;
+}
+span.red{
+    background-color: red;
+}
+span.black{
+    background-color: black;
+}
+.footer{
+    padding-bottom: 20px;
+}
+.footer .buy{
+    padding: 7px 15px;
+    background-color: var(--primary-color);
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    z-index: 2;
+    border: none;
+    outline: none;
+    color: white;
+}
+.push .footer button:hover{
+    transform: scale(0.9);
+
+}
+.wrapper:hover .image img{
+    transform: translateY(-90px) rotate(-20deg);
+}
+.wrapper:hover .name-show{
+    transform: translate(-40px, -70px);
+}
+.wrapper:hover .price{
+    transform: translate(-117px, -70px);
+}
+.push{
+    margin-top: 150px;
+    opacity: 1; 
+	visibility: hidden;
+	transition: 0.2s;
+}
+
+.wrapper:hover .push{
+    margin-top: -30px;
+    transition-delay: 0.2s;
+	opacity: 1;
+	visibility: visible;
+}
